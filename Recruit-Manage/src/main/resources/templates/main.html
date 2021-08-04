@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<base th:href="@{http://localhost:8081}">
+<body>
+<span >welcome  [[${user}]]</span>
+<span th:text="${user}"></span>
+<h1>[[${user}]]</h1>
+<a th:href="@{/logout}">退出登录</a>
+<span class="txt"></span>
+<button onclick="oep()"></button>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+<!--<script type="text/javascript" href="../static/layui/jquery.min.js"  th:href="@{/js/jquery.js}"></script>-->
+<script>
+    function oep(){
+        $.ajax({
+            url:"company/test",
+            type:"post",
+            success:function (res) {
+                console.log(res)
+                console.log(res.queryData)
+                $(".txt").text(res.queryData.cRealName)
+            },
+            error:function () {
+
+            }
+        })
+
+    }
+</script>
+</body>
+</html>
