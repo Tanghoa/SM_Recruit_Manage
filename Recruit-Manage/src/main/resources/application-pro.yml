@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 8082
 spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
@@ -9,9 +9,19 @@ spring:
     password: 123456
   thymeleaf:
     cache: false
+    prefix: classpath:/templates/
+    suffix: .html
   devtools:
     restart:
       enabled: false
+  mvc:
+    view:
+      prefix: classpath:/templates/
+      suffix: .html
+#  session:
+#    store-type: redis
+#  redis:
+#    host: 192.168.56.10
 mybatis:
   type-aliases-package: com.recruit.entity
   mapper-locations: classpath:mapper/*.xml

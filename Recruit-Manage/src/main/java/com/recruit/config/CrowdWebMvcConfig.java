@@ -1,10 +1,12 @@
 package com.recruit.config;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 //配置视图解析器
 @Configuration
+@CrossOrigin
 public class CrowdWebMvcConfig implements WebMvcConfigurer {
 
 
@@ -18,6 +20,8 @@ public class CrowdWebMvcConfig implements WebMvcConfigurer {
 
         // 前往用户注册页面
         registry.addViewController(urlPath).setViewName(viewName);
+        registry.addViewController("/to/login").setViewName("admin/test");
+        registry.addViewController("/to/login/admin").setViewName("admin/index");
 
     }
 }
